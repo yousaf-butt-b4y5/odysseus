@@ -16,7 +16,11 @@ $service2Name = "Odysseus-PyMCPFS"
 $playwrightUrl = "http://localhost:9090"
 $pyMcpFsUrl = "http://localhost:8100"
 $odysseusUrl = "http://127.0.0.1:7000"
-$odysseusToken = "ody_yvdx08cqqLxXNG9FxV0vVyq8A2Enp2o0D9_H4tt6lZk"
+$odysseusToken = $env:ODYSSEUS_API_TOKEN
+if (-not $odysseusToken) {
+    Write-Error "ODYSSEUS_API_TOKEN environment variable is not set. Set it before running this script."
+    exit 1
+}
 
 $checks = @{ passed = 0; failed = 0; warnings = 0 }
 

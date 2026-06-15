@@ -114,9 +114,8 @@ Write-Host "------------------------------------"
 
 $token = $env:ODYSSEUS_API_TOKEN
 if (-not $token) {
-    Write-Host "⚠ ODYSSEUS_API_TOKEN not set. Setting from stored value..." -ForegroundColor Yellow
-    $token = "ody_yvdx08cqqLxXNG9FxV0vVyq8A2Enp2o0D9_H4tt6lZk"
-    $env:ODYSSEUS_API_TOKEN = $token
+    Write-Error "ODYSSEUS_API_TOKEN environment variable is not set. Set it before running this script."
+    exit 1
 }
 
 $url = $env:ODYSSEUS_URL
